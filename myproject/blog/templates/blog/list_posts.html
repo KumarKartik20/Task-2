@@ -1,0 +1,15 @@
+{% block content %}
+<h2>Blog Posts</h2>
+{% for category, posts in posts.items %}
+<h3>{{ category.name }}</h3>
+<ul>
+    {% for post in posts %}
+    <li>
+        <h4>{{ post.title }}</h4>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <p>{{ post.summary|truncatewords:15 }}...</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}
